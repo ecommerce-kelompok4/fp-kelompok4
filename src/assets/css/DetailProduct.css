@@ -1,0 +1,54 @@
+.container-fluid{
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.detail-price {
+    font-size: 2.5rem;
+    color: #f08006;
+    font-weight: 700;
+}
+
+.detail-description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgba(49, 53, 59, 0.96);
+}
+
+.minus,
+.plus {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  background: #f2f2f2;
+  border-radius: 4px;
+  padding: 8px 5px 8px 5px;
+  padding-top: 2px;
+  border: 1px solid #ddd;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+input.input-jumlah {
+  height: 30px;
+  width: 70px;
+  text-align: center;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.btn-beli {
+    font-weight: 700;
+    border-radius: 0.5rem;
+    color: #fff;
+    cursor: pointer;
+    background: #f08006;
+    border: 1px solid #fff;
+}
+
+.btn-beli:hover {
+    color: #fff;
+}
