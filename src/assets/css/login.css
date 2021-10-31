@@ -1,0 +1,144 @@
+.space-container-login {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+}
+  
+.space-container-forgot {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+ }
+  
+.bg-login {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    margin-left: -4rem;
+}
+  
+.bg-register {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-left: -2rem;
+}
+  
+.bg-auth {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    margin-left: -4rem;
+}
+  
+.card-login {
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 2.2rem !important;
+    width: 420px;
+    margin-left: 50px;
+}
+  
+.card-register {
+    border: 1px solid #e0e0e0;
+    border-radius: 1rem !important;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 2.2rem !important;
+    width: 500px;
+    margin-left: 100px;
+}
+  
+h1.h1 {
+    margin-top: -1.5rem;
+}
+  
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #f08006;
+    border-color: #f08006;
+}
+  
+a.link-primary {
+    color: #f08006;
+    text-decoration: none;
+    background: transparent;
+}
+
+a.link-primary::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0.25em;
+    border-radius: 0.5rem;
+    background: #f08006;
+    transition: width 0.3s;
+}
+  
+a.link-primary:hover::after {
+    width: 90%;
+    transition: width 0.3s;
+}
+  
+.btn-login {
+    width: 100%;
+    font-weight: 700;
+    background-color: #f08006;
+    color: #ffffff;
+    transition: 0.5s ease;
+}
+  
+.btn-login:hover {
+    font-weight: 700;
+    border: 1px solid #f08006;
+    background-color: #ffffff;
+    color: #f08006;
+}
+  
+.custom-control-input {
+    position: absolute;
+    left: 0;
+    z-index: -1;
+    width: 1rem;
+    height: 1.25rem;
+    opacity: 0;
+}
+  
+.custom-control-label::after {
+    position: absolute;
+    top: 0.25rem;
+    left: -1.5rem;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    content: "";
+    background: no-repeat 50%/50% 50%;
+}
+  
+@media (max-width: 990px) {
+    .bg-login {
+      display: none;
+    }
+    .bg-register {
+      display: none;
+    }
+    .bg-auth {
+      display: none;
+    }
+    .card-login {
+      width: auto;
+      margin-left: 0;
+    }
+    .card-register {
+      width: auto;
+      margin-left: 0;
+    }
+}
+
+.red-tooltip + .tooltip > .tooltip-inner {background-color: #f00;}
