@@ -2,8 +2,22 @@ import '../assets/css/Navbar.css'
 import Logo from '../image/login.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart  } from '@fortawesome/free-solid-svg-icons'
+import { useHistory } from 'react-router-dom'
 
 export const Navbar = () => {
+    const history = useHistory()
+    
+    const login = () => {
+        history.push('/login')
+        history.go(0)
+    }
+
+    const logout = () => {
+        localStorage.removeItem('loginUser')
+        history.push('/')
+        history.go(0)
+    }
+
     return(
         <nav className="navbar fixed-top navbar-expand-md navbar-light bg-white">
             <div className="container-fluid">
@@ -28,12 +42,15 @@ export const Navbar = () => {
                         <li className="nav-item mr-3 mt-3 mb-2 px-2">
                             |
                         </li>
-                        <li className="nav-item mr-3 mt-2 mb-2 px-2">
-                            <a href="!" className="btn btn-login">Login</a>
-                        </li>
-                        {/* <li className="nav-item mr-3 mt-2 mb-2 px-2">
-                            <a href="!" className="btn btn-danger">Logout</a>
-                        </li> */}
+                        {
+                            !localStorage.getItem('loginUser') ?
+                            <li className="nav-item mr-3 mt-2 mb-2 px-2">
+                                <button onClick={login} className="btn btn-login">Login</button>
+                            </li> :
+                            <li className="nav-item mr-3 mt-2 mb-2 px-2">
+                                <button onClick={logout} className="btn btn-danger">Logout</button>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
