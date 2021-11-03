@@ -21,6 +21,10 @@
     width: 300px;
     margin-left: -4rem;
 }
+
+.bg-login:hover {
+    cursor: pointer;
+}
   
 .bg-register {
     display: block;

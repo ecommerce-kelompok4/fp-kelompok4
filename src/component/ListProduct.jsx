@@ -2,8 +2,26 @@ import '../assets/css/ListProduct.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBoxOpen  } from '@fortawesome/free-solid-svg-icons'
 import { faArrowAltCircleDown  } from '@fortawesome/free-regular-svg-icons'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setProducts } from '../redux/actions/productAction'
 
 export const ListProduct = () => {
+    const products = useSelector((state) => state.allProducts.products)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        loadProduct()
+    }, [])
+
+    const loadProduct = () => {
+        fetch('https://fakestoreapi.com/products')
+        .then(res => res.json())
+        .then(json => {
+            dispatch(setProducts(json))
+        })
+    }
     return(
         <div className="row">
             <div className="col-lg-3 col-md-12">
@@ -33,38 +51,34 @@ export const ListProduct = () => {
             </div>
             <div className="col-lg-9 col-md-12">
                 <div className="row">
-                    <div className="mt-4 col-md-3 mb-2 d-flex">
-                        <div className="card primary" style={{width: 'auto', height: 'auto'}}>
-                            <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" className="card-img-top p-4" alt="..."/>
-                            <div className="card-body d-flex flex-column">
-                                <h6 className="card-title mt-auto fw-bold mb-3">Mens Casual Premium Slim Fit T-Shirts</h6>
-                                <h4 className="card-price">$ 22.3</h4>
-                                <div className="buy d-flex justify-content-between align-items-center">
-                                    <div className="rating-product mt-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24px" viewBox="0 0 28 28" width="24px" fill="#F2B705"><g><path d="M0,0h24v24H0V0z" fill="none"></path><path d="M0,0h24v24H0V0z" fill="none"></path></g><g><path d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"></path></g></svg>
-                                        4.5
-                                    </div>
-                                    <a href="#!" className="btn btn-sm btn-buy mt-2"><FontAwesomeIcon icon={faBoxOpen} /> Detail</a>
+                    {
+                        products.length === 0 ?
+                        <div style={{height: '100vh'}}>
+                            <div class="text-center">
+                                <div class="spinner-border mt-5" id="spin" role="status">
+                                    <span class="visually-hidden">Loading...</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="mt-4 col-md-3 mb-2 d-flex">
-                        <div className="card primary" style={{width: 'auto', height: 'auto'}}>
-                            <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" className="card-img-top p-4" alt="..."/>
-                            <div className="card-body d-flex flex-column">
-                                <h6 className="card-title mt-auto fw-bold mb-3">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h6>
-                                <h4 className="card-price">$ 109.95</h4>
-                                <div className="buy d-flex justify-content-between align-items-center">
-                                    <div className="rating-product mt-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24px" viewBox="0 0 28 28" width="24px" fill="#F2B705"><g><path d="M0,0h24v24H0V0z" fill="none"></path><path d="M0,0h24v24H0V0z" fill="none"></path></g><g><path d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"></path></g></svg>
-                                        4.5
+                        </div> :
+                        products.map((item) => (
+                            <div className="mt-4 col-md-3 mb-2 d-flex" key={item.id}>
+                                <div className="card primary" style={{width: 'auto', height: 'auto'}}>
+                                    <img src={item.image} className="card-img-top p-4" alt={item.title}/>
+                                    <div className="card-body d-flex flex-column">
+                                        <h6 className="card-title mt-auto fw-bold mb-3">{item.title}</h6>
+                                        <h4 className="card-price">$ <span>{item.price}</span></h4>
+                                        <div className="buy d-flex justify-content-between align-items-center">
+                                            <div className="rating-product mt-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24px" viewBox="0 0 28 28" width="24px" fill="#F2B705"><g><path d="M0,0h24v24H0V0z" fill="none"></path><path d="M0,0h24v24H0V0z" fill="none"></path></g><g><path d="M12,17.27l4.15,2.51c0.76,0.46,1.69-0.22,1.49-1.08l-1.1-4.72l3.67-3.18c0.67-0.58,0.31-1.68-0.57-1.75l-4.83-0.41 l-1.89-4.46c-0.34-0.81-1.5-0.81-1.84,0L9.19,8.63L4.36,9.04c-0.88,0.07-1.24,1.17-0.57,1.75l3.67,3.18l-1.1,4.72 c-0.2,0.86,0.73,1.54,1.49,1.08L12,17.27z"></path></g></svg>
+                                                {item.rating.rate}
+                                            </div>
+                                            <Link to={`/product/${item.id}`} className="btn btn-sm btn-buy mt-2"><FontAwesomeIcon icon={faBoxOpen} /> Detail</Link>
+                                        </div>
                                     </div>
-                                    <a href="#!" className="btn btn-sm btn-buy mt-2"><FontAwesomeIcon icon={faBoxOpen} /> Detail</a>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>
