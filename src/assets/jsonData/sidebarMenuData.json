@@ -1,0 +1,17 @@
+[
+  {
+    "path": "/",
+    "title": "Dashboard",
+    "icon": "fas fa-columns"
+  },
+  {
+    "path": "/users",
+    "title": "Update Stock",
+    "icon": "fas fa-users"
+  },
+  {
+    "path": "/orders",
+    "title": "Laporan Checkout",
+    "icon": "fas fa-dollar-sign"
+  }
+]

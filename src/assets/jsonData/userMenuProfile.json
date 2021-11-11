@@ -1,0 +1,7 @@
+[
+  {
+    "icon": "fas fas-sign-out-alt",
+    "content": "Logout",
+    "path": "/login"
+  }
+]

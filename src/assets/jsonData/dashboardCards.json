@@ -1,0 +1,26 @@
+[
+    {
+        "icon": "fas fa-dollar-sign",
+        "count":"Rp 2.000.000",
+        "title":"Monthly Revenue",
+        "color":"green"
+    },
+    {
+        "icon": "fas fa-shopping-cart",
+        "count":"182",
+        "title":"Pesanan Terbaru",
+        "color":"amber"
+    },
+    {
+        "icon": "fas fa-users",
+        "count":"20",
+        "title":"Pembeli",
+        "color":"blue"
+    },
+    {
+        "icon": "fas fa-comment-dots",
+        "count":"234",
+        "title":"Ulasan tertunda",
+        "color":"red"
+    }
+]
