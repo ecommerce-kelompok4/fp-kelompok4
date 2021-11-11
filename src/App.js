@@ -8,6 +8,8 @@ import { Footer } from './component/Footer'
 import { Login } from './component/Login'
 import { Home } from './component/Home'
 import { DetailProduct } from './component/DetailProduct'
+import { Cart } from './component/Cart'
+import { Checkout } from './component/Checkout'
 
 function App() {
   
@@ -22,6 +24,8 @@ function App() {
         <div className="App">
           <Navbar />
             <Route path="/product/:productId" exact component={DetailProduct} />
+            <Route path="/cart" exact component={Cart} />
+            <Route path="/checkout" exact component={Checkout} />
             <Route path="/" exact component={Home} />
             {/* <Route>404 Not Found!</Route> */}
           <Footer />
