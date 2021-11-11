@@ -65,7 +65,7 @@ export const ListProduct = () => {
                                 <div className="card primary" style={{width: 'auto', height: 'auto'}}>
                                     <img src={item.image} className="card-img-top p-4" alt={item.title}/>
                                     <div className="card-body d-flex flex-column">
-                                        <h6 className="card-title mt-auto fw-bold mb-3">{item.title}</h6>
+                                        <h6 className="card-title mt-auto fw-bold mb-3">{`${item.title.substring(0,20)}...`}</h6>
                                         <h4 className="card-price">$ <span>{item.price}</span></h4>
                                         <div className="buy d-flex justify-content-between align-items-center">
                                             <div className="rating-product mt-2">
