@@ -43,12 +43,13 @@ const tableData = {
   ],
 }
 
-const orderStatus = {
-  shipping: 'primary',
-  pending: 'warning',
-  paid: 'success',
-  refund: 'danger',
-}
+
+// const orderStatus = {
+//   shipping: 'primary',
+//   pending: 'warning',
+//   paid: 'success',
+//   refund: 'danger',
+// }
 
 const renderHead = (item, index) => {
   return <th key={index}>{item}</th>
@@ -62,7 +63,7 @@ const renderBody = (item, index) => {
       <td>{item.price}</td>
       <td>{item.date}</td>
       <td>
-        <Badge type={orderStatus[item.status]} content={item.status} />
+        {/* <Badge type={orderStatus[item.status]} content={item.status} /> */}
       </td>
     </tr>
   )

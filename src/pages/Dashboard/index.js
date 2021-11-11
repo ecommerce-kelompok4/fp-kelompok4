@@ -10,7 +10,7 @@ export default function Dashboard() {
     <div>
       <h2 className='page-header'>Dashboard</h2>
       <div className='row'>
-        <div className='col-6'>
+        <div className='col-12'>
           <div className='row'>
             {dashboardCards.map((item, index) => {
               return (
@@ -26,25 +26,10 @@ export default function Dashboard() {
             })}
           </div>
         </div>
-        <div className='col-6'>
-          <div className='card full-height'>
-            <Chart />
-          </div>
-        </div>
       </div>
 
       <div className='row'>
-        <div className='col-6'>
-          <div className='card'>
-            <div className='card-header'>
-              <h3>top 5 users balances</h3>
-            </div>
-            <div className='card-body'>
-              <TopUsersBalance />
-            </div>
-          </div>
-        </div>
-        <div className='col-6'>
+        <div className='col-12'>
           <div className='card'>
             <div className='card-header'>
               <h3>Revenue History</h3>

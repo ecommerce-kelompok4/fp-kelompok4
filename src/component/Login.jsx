@@ -93,8 +93,8 @@ export const Login = () => {
                     </div>
                 </form>
                 <div className="text-center mt-4">
-                    <span className="small">Forget an account? </span>
-                    <label className="link-primary font-weight-bold small">Contact Admin</label>
+                    <span className="small">Are you admin ? </span>
+                    <Link to="/login-admin" target="_blank" rel="noreferrer noopener" className="link-primary font-weight-bold small">Login Admin</Link>
                 </div>
                 </div>
             </div>

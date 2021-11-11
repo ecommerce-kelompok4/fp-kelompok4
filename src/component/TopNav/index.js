@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
 import '@fortawesome/react-fontawesome'
 import UserDropDown from '../Dropdown/UserDropDown'
 import './topnav.css'
@@ -16,11 +15,6 @@ export default function index() {
         <div className='topnav-right-item'>
           <UserDropDown />
         </div>
-        {/* <div className="topnav-right-item">
-          <Link to='/login'>
-            <i className="fas fa-sign-out-alt"></i>
-          </Link>
-        </div> */}
       </div>
     </div>
   )
