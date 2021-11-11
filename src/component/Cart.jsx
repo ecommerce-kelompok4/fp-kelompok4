@@ -4,7 +4,7 @@ import { faTrashAlt  } from '@fortawesome/free-solid-svg-icons'
 import { Redirect, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { detailProductCart } from '../redux/actions/productAction'
+import { detailProductCart, removeFromCart } from '../redux/actions/productAction'
 
 export const Cart = () => {
     const history = useHistory()
@@ -39,18 +39,19 @@ export const Cart = () => {
 
     const deleteAll = () => {
         dispatch(detailProductCart([]))
+        dispatch(removeFromCart())
         totalPrice()
     }
 
-    const deleteCart = (id) => {
-        if(window.confirm("Are you sure to delete this item ?")){
-            let index = detailCart.findIndex(function(o){
-                return o.id === 'myid';
-            })
-            console.log(index)
-        }
-        console.log(id)
-    }
+    // const deleteCart = (id) => {
+    //     if(window.confirm("Are you sure to delete this item ?")){
+    //         let index = detailCart.findIndex(function(o){
+    //             return o.id === 'myid';
+    //         })
+    //         console.log(index)
+    //     }
+    //     console.log(id)
+    // }
 
     const checkout = () => {
         history.push('/checkout')
@@ -86,9 +87,9 @@ export const Cart = () => {
                                         </div>
                                     </div>
                                     <div class="cart-qty">
-                                        <span class="button-delete" onClick={() => deleteCart(item.id)}>
+                                        {/* <span class="button-delete" onClick={() => deleteCart(item.id)}>
                                             <FontAwesomeIcon className="ms-2" icon={faTrashAlt} />
-                                        </span>
+                                        </span> */}
                                         <div class="number-cart">
                                             <span class="minus-cart me-2" onClick={() => minusQty(item.id)}>-</span>
                                             <input type="number" value={item.qty} class="input-jumlah" />

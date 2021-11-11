@@ -2,7 +2,7 @@ import '../assets/css/Checkout.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { setCheckoutProduct, detailProductCart } from '../redux/actions/productAction'
+import { setCheckoutProduct, detailProductCart, removeFromCart } from '../redux/actions/productAction'
 
 export const Checkout = () => {
     const history = useHistory()
@@ -46,18 +46,33 @@ export const Checkout = () => {
 
     const checkout = () => {
         if(!address == '' && !name == '' && !email == '' && !telp == 0){
+            let localArray = []
             let objCheckout = {
+                timestamp: new Date(),
                 address: address,
                 name: name,
                 email: email,
                 telp: telp,
                 products: [detailCart]
             }
+
+            if(!localStorage.getItem('checkout')){
+                localArray.push(objCheckout)
+                localStorage.setItem("checkout", JSON.stringify(localArray));
+            }else{
+                let storedCheckout = JSON.parse(localStorage.getItem("checkout"))
+                storedCheckout.push(objCheckout)
+                localStorage.setItem("checkout", JSON.stringify(storedCheckout));
+            }
+            
+            
+
             dispatch(setCheckoutProduct(objCheckout))
 
             setTimeout(() => {
                 alert("Checkout Completed!!")
                 dispatch(detailProductCart([]))
+                dispatch(removeFromCart())
                 history.push('/')
             }, 2000)
             

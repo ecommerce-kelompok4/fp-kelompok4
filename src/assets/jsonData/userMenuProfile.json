@@ -1,20 +1,5 @@
 [
   {
-    "icon": "fas fa-user",
-    "content": "Profile",
-    "path": "/"
-  },
-  {
-    "icon": "fas fa-wallet",
-    "content": "My Wallet",
-    "path": "/"
-  },
-  {
-    "icon": "fas fa-cog",
-    "content": "Settings",
-    "path": "/"
-  },
-  {
     "icon": "fas fas-sign-out-alt",
     "content": "Logout",
     "path": "/login"

@@ -30,9 +30,11 @@ export const Navbar = () => {
                     <ul className="navbar-nav ml-auto">
                         {
                             !localStorage.getItem('loginUser') ?
-                            <li className="nav-item mr-3 mt-2 mb-2 px-2">
-                                <Link to="/login" className="btn btn-login">Login</Link>
-                            </li> :
+                            <>
+                                <li className="nav-item mr-3 mt-2 mb-2 px-2">
+                                    <Link to="/login" className="btn btn-login">Login</Link>
+                                </li>
+                            </> :
                             <>
                                 <li className="nav-item dropdown no-arrow mr-3 mt-2 mb-2">
                                     <Link to="/cart" className="btn btn-cart" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

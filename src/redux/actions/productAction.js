@@ -27,6 +27,12 @@ export const addToCart = (productsCart) => {
   };
 };
 
+export const removeFromCart = () => {
+  return {
+    type: ActionTypes.REMOVE_FROM_CART,
+  };
+};
+
 export const detailProductCart = (detailsCart) => {
   return {
     type: ActionTypes.DETAIL_PRODUCT_CART,

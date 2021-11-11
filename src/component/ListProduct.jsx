@@ -16,10 +16,15 @@ export const ListProduct = () => {
     }, [])
 
     const loadProduct = () => {
+        let temp = []
         fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
         .then(json => {
-            dispatch(setProducts(json))
+            json.map((item, i) => {
+                item["stock"] = 5
+                temp.push(item)
+            })
+            dispatch(setProducts(temp))
         })
     }
     return(
